@@ -11,7 +11,7 @@ WORKDIR /var/www/html/
 
 RUN git clone https://github.com/epenedos/Uptick-NGINX.git
 RUN chmod -R 755 /var/www/html/*
-RUN sed 's/\/usr\/share\/ngnix/\/var\/www\/html/g' /etc/nginx/nginx.conf
+RUN sed 's/\/usr\/share\/nginx/\/var\/www\/html/g' /etc/nginx/nginx.conf
 
 
 
