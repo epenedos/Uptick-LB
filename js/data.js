@@ -4,7 +4,7 @@ $('.show-hide-add-peak').click(function() {
 	$('.show-hide-minus').toggle();
 });
 
-var url = "http://NODE_SERVER_IP_ADDRESS:3000/api/";
+var url = "http://10.30.8.161:32800/api/";
 $("document").ready(function() {
     $("#getcontent").click(getContent);
     $("#add-data").click(addContent);
