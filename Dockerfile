@@ -10,9 +10,9 @@ RUN mkdir -p /var/www/html
 WORKDIR /var/www/html/
 
 RUN git clone https://github.com/epenedos/Uptick-NGINX.git
-
-RUN sed 's/\/usr\/share\/ngnix/\/var\/www\/html/g' /etc/ngnix/ngnix.conf
 RUN chmod -R 755 /var/www/html/*
+RUN sed 's/\/usr\/share\/ngnix/\/var\/www\/html/g' /etc/nginx/nginx.conf
+
 
 
 
