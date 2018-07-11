@@ -4,7 +4,7 @@ $('.show-hide-add-peak').click(function() {
 	$('.show-hide-minus').toggle();
 });
 
-var url = "http://10.30.8.161:32800/api/";
+var url = "http://172.17.0.3:3000/api/";
 $("document").ready(function() {
     $("#getcontent").click(getContent);
     $("#add-data").click(addContent);
