@@ -5,6 +5,7 @@ $('.show-hide-add-peak').click(function() {
 });
 
 var url = "http://172.17.0.3:3000/api/";
+
 $("document").ready(function() {
     $("#getcontent").click(getContent);
     $("#add-data").click(addContent);
