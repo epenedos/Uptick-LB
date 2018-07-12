@@ -14,7 +14,7 @@ RUN cp -rf /var/www/html/Uptick-NGINX/* /var/www/html/
 
 RUN chmod -R 755 /var/www/html/*
 RUN sed -i 's/\/usr\/share\/nginx\/html/\/var\/www\/html/g' /etc/nginx/conf.d/default.conf
-EXPOSE 3000/tcp
+
 
 
 
