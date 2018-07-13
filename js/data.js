@@ -29,10 +29,11 @@ function getNodeInfo() {
 }
 
 function setInfo(data, status, jqxhr) {
+	var teste= os.hostname();
 	var nodejsInfo = '<div class="node-info">Node.js IP Address: ' + data['ip'] + ' <br/> Node.js Host Name: ' + data['hostname'] + '</div>';
-  var nginxInfo = '<div class="server-info">NginxWeb IP Address: ' + data['ip'] + ' <br/> NhinxWeb Host Name: ' + os.hostname() + '</div>';
+  var nginxInfo = '<div class="server-info">NginxWeb IP Address: ' + data['ip'] + ' <br/> NhinxWeb Host Name: ' + teste + '</div>';
 		document.getElementById("nodeInfo").innerHTML = nodejsInfo;
-		document.getElementById("serverInfo").innerHTML = nginxInfo;
+		document.getElementById("serverInfo").innerHTML = teste;
 }
 
 function setContent(data, status, jqxhr) {
