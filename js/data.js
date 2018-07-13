@@ -1,6 +1,4 @@
-var os = require('os');
-console.log("Platform: " + os.platform());
-console.log("Architecture: " + os.arch());
+
 
 $('.show-hide-add-peak').click(function() {
 	$('.add-peak-body').toggle("slow");
@@ -32,7 +30,9 @@ function getNodeInfo() {
 }
 
 function setInfo(data, status, jqxhr) {
-	
+	var os = require('os');
+	console.log("Platform: " + os.platform());
+	console.log("Architecture: " + os.arch());
 	var nodejsInfo = '<div class="node-info">Node.js IP Address: ' + data['ip'] + ' <br/> Node.js Host Name: ' + data['hostname'] + '</div>';
 	document.getElementById("nodeInfo").innerHTML = nodejsInfo;  
 	var teste= os.hostname();
