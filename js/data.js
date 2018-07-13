@@ -35,9 +35,6 @@ function getNodeInfo() {
 }
 
 function getHostInfo() {
-	var os = require('os');
-console.log("Platform: " + os.platform());
-console.log("Architecture: " + os.arch());
     $.getJSON("http://jsonip.com/?callback=?", function (data) {
         console.log(data);
         hostInfo = '<div class="host-info", style="padding: 5px 0;"> Ngnix Host IP Address: ' + location.host + ' <br/> Ngnix Host Name: ' + location.hostname + '</div>';
