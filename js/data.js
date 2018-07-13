@@ -6,13 +6,13 @@ $('.show-hide-add-peak').click(function() {
 	$('.show-hide-minus').toggle();
 });
 
-var url = "http://172.17.0.3:3000/api/";
-
+var url = "http://NODE_SERVER_IP_ADDRESS:3000/api/";
 $("document").ready(function() {
     $("#getcontent").click(getContent);
     $("#add-data").click(addContent);
     $("#search-data").click(searchData);
     $("#getnodeinfo").click(getNodeInfo);
+    $("#sethostinfo").click(getHostInfo);
 });
 
 function getContent() {
@@ -22,22 +22,29 @@ function getContent() {
           dataType: "json" });
 }
 
+function getInfo() {
+    getNodeInfo();
+    getHostInfo();
+}
+
 function getNodeInfo() {
     $.ajax(url + "info/",
-        { success: setInfo,
+        { success: setNodeInfo,
           type: "GET",
           dataType: "json" });
 }
 
-function setInfo(data, status, jqxhr) {
-	var os = require('os');
-	console.log("Platform: " + os.platform());
-	console.log("Architecture: " + os.arch());
-	var nodejsInfo = '<div class="node-info">Node.js IP Address: ' + data['ip'] + ' <br/> Node.js Host Name: ' + data['hostname'] + '</div>';
-	document.getElementById("nodeInfo").innerHTML = nodejsInfo;  
-	var teste= os.hostname();
-	var nginxInfo = '<div class="server-info">NginxWeb IP Address: ' + data['ip'] + ' <br/> NhinxWeb Host Name: ' + teste + '</div>';	
-	document.getElementById("serverInfo").innerHTML = teste;
+function getHostInfo() {
+    $.getJSON("http://jsonip.com/?callback=?", function (data) {
+        console.log(data);
+        hostInfo = '<div class="host-info", style="padding: 5px 0;"> Ngnix Host IP Address: ' + location.host + ' <br/> Ngnix Host Name: ' + location.hostname + '</div>';
+        document.getElementById("hostInfo").innerHTML = hostInfo;
+    });
+}
+
+function setNodeInfo(data, status, jqxhr) {
+    var nodejsInfo = '<div class="node-info">Node.js IP Address: ' + data['ip'] + ' <br/> Node.js Host Name: ' + data['hostname'] + '</div>';
+    document.getElementById("nodeInfo").innerHTML = nodejsInfo;
 }
 
 function setContent(data, status, jqxhr) {
