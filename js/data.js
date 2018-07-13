@@ -37,7 +37,7 @@ function getNodeInfo() {
 function getHostInfo() {
     $.getJSON("http://jsonip.com/?callback=?", function (data) {
         console.log(data);
-        hostInfo = '<div class="host-info", style="padding: 5px 0;"> Ngnix Host IP Address: ' + data + ' <br/> Ngnix Host Name: ' + location.hostname + '</div>';
+        hostInfo = '<div class="host-info", style="padding: 5px 0;"> Ngnix Host IP Address: ' + location.origin + ' <br/> Ngnix Host Name: ' + location.hostname + '</div>';
         document.getElementById("hostInfo").innerHTML = hostInfo;
     });
 }
