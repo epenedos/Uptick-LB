@@ -1,3 +1,4 @@
+var os = require('os');
 $('.show-hide-add-peak').click(function() {
 	$('.add-peak-body').toggle("slow");
 	$('.show-hide-plus').toggle();
@@ -10,7 +11,7 @@ $("document").ready(function() {
     $("#getcontent").click(getContent);
     $("#add-data").click(addContent);
     $("#search-data").click(searchData);
-    $("#getnodeinfo").click(getNodeInfo);    
+    $("#getnodeinfo").click(getNodeInfo);
 });
 
 function getContent() {
@@ -29,7 +30,9 @@ function getNodeInfo() {
 
 function setInfo(data, status, jqxhr) {
 	var nodejsInfo = '<div class="node-info">Node.js IP Address: ' + data['ip'] + ' <br/> Node.js Host Name: ' + data['hostname'] + '</div>';
-    document.getElementById("nodeInfo").innerHTML = nodejsInfo;
+  var nginxInfo = '<div class="server-info">NginxWeb IP Address: ' + data['ip'] + ' <br/> NhinxWeb Host Name: ' + os.hostname() + '</div>';
+		document.getElementById("nodeInfo").innerHTML = nodejsInfo;
+		document.getElementById("serverInfo").innerHTML = nginxInfo;
 }
 
 function setContent(data, status, jqxhr) {
@@ -43,9 +46,9 @@ function createTable(array, tableBody) {
     var table = document.createElement('table');
     table.className = 'table table-striped data-table';
     table.id = "peak-data";
-    
+
     var thead = document.createElement('thead');
-    
+
     var tr = document.createElement('tr');
     for(var i = 0; i < keylist.length; i++) {
         var td = document.createElement('td');
@@ -53,12 +56,12 @@ function createTable(array, tableBody) {
         tr.appendChild(td);
         table.appendChild(tr);
     }
-    
+
     thead.appendChild(tr);
     table.appendChild(thead);
-    
+
     var tableBody = document.createElement('tbody');
-    
+
     for(var i = 0; i < array.length; i++) {
          tr = document.createElement('tr');
 
