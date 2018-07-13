@@ -1,4 +1,7 @@
 var os = require('os');
+console.log("Platform: " + os.platform());
+console.log("Architecture: " + os.arch());
+
 $('.show-hide-add-peak').click(function() {
 	$('.add-peak-body').toggle("slow");
 	$('.show-hide-plus').toggle();
