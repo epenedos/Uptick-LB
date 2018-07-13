@@ -5,7 +5,7 @@ $('.show-hide-add-peak').click(function() {
 	$('.show-hide-minus').toggle();
 });
 
-var url = "http://0.0.0.0:32900/api/";
+var url = "http://172.17.0.3:3000/api/";
 
 $("document").ready(function() {
     $("#getcontent").click(getContent);
